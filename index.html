@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="css/mainform.css">
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto');
+</style>
+</head>
+<body>
+	<hgroup>
+		<a href="http://www.lacaja.com.ar/" target="_blank"><img src="logo.png"></a>
+		<h1>Seguridad de la Informacion</h1>	
+	</hgroup>
+	<div class="error">
+		<span>Datos Ingresados no validos, intento de nuevo.</span>
+	</div>
+	<div class="main">
+		<form action="" id="formlg">
+			<div class="group">
+				<input  type="text" name="usuariolg"  required><span class="highlight"></span><span class="bar"></span>
+				<label>Usuario</label>
+			</div>
+			<div class="group">
+				<input type="password" name="passlg"  required><span class="highlight"></span><span class="bar"></span>
+				<label>Contraseña</label>
+			</div>
+			<button type="submit" name="botonlg" value="Iniciar Sesion" class="button buttonBlue">Inicio
+				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+			</button>
+		</form>
+	</div>
+	<footer><h3>ISO27001 | Controles</h3>
+	</footer>
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
+

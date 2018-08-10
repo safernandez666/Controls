@@ -1,0 +1,100 @@
+.navbar-default {
+  background-color: rgb(3,78,145);
+  border-color: #1abc9c;
+
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ecf0f1;
+}
+
+.navbar-nav li.active {
+    background: rgba(0,0,0,0.2);
+    padding: 0 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ecf0f1;
+  background-color: #1abc9c;
+}
+.navbar-default .navbar-toggle {
+  border-color: #1abc9c;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #1abc9c;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ecf0f1;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ecf0f1;
+    background-color: #1abc9c;
+  }
+}
+
+
+/*Edit by ulabedin*/
+
+
+.navbar-header {width: 100%;}
+#logo img {width: 40px;vertical-align: middle;    margin-top: 10px;}
+.fas {color:#fff;}
+.nav-link {color:#fff!important;}
+span.label.label-success {
+    background: #18c318;
+    color: #fff;
+    
+}
+.label {padding: 2px 4px;
+    border-radius: 3px;}
+    .label-danger {color:#fff;background:#dc4c33;}
+
+    .nav-left {float: left}
+    .nav-right {float:right;}
+
+
+.dropdown {float:left;margin-left:20px;padding-bottom: 10px}
+
+

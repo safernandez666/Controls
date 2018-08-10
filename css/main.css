@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+html{
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+body{
+    background-size: cover;
+    background-color: #034E91;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="number"], textarea {
+    width: 80%;
+    height: 25px;
+    margin: 0 0 15px;
+    padding: 16px 1%;
+    font-size: 18px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 0 3px 3px 0;
+}
+
+input[type="submit"], input[type="button"], input[type="reset"] {
+    display: inline-block;
+    background: #2394D5 !important;
+    padding: 5px 15px;
+    color: #fff;
+    border: 0 none;
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+    opacity: .8;
+}
+
+.main input[type="text"], .main input[type="password"] {
+    text-align: center;
+    border:0;
+}
+.formheader {
+    background: #03468b;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.formheader > h1 {
+    line-height: 4em;
+}
+.main{
+    width: 30%;
+    background-color: rgba(255,255,255,.4);
+    text-align: center;
+    border-radius: 5px;
+    margin: -6% auto;
+    padding: 3%;
+    position: relative;
+}
+
+.error{
+    background-color: #E74F4F;
+    position: absolute;
+    top: 0;
+    padding: 10px 0 ;
+    border-radius:  0 0 5px 5px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.header h1.logo {  margin: 7px 0 0 0; float: left;   }
+
+.header h1.logo a {  
+
+    width: 49px; height: 49px; display: block; 
+    background: url(logo.png) no-repeat 0 0;
+
+    /* the old way was including text-indent: -9999px; but the new way is as seen below */
+
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+
+}
+
+div#minilogo {
+    width: 800px;
+    margin: 160px auto;
+    text-align: center;
+}
+
+div#minilogo > img {
+    width: 150px;
+}
+
+
+
+
+
+form {
+    width: 380px;
+    margin: 4em auto;
+    
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+.group { 
+    position: relative; 
+    margin-bottom: 45px; 
+}
+
+input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    -webkit-appearance: none;
+    display: block;
+    background: #fafafa;
+    color: #636363;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #757575;
+}
+
+input:focus { outline: none; }
+
+
+/* Label */
+
+label {
+    color: #999; 
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: all 0.2s ease;
+}
+
+
+/* active */
+
+input:focus ~ label, input.used ~ label {
+    top: -20px;
+  -webkit-transform: scale(.75);
+          transform: scale(.75); left: -2px;
+    /* font-size: 14px; */
+    color: #4a89dc;
+}
+
+
+/* Underline */
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px; 
+    width: 0;
+    bottom: 1px; 
+    position: absolute;
+    background: #4a89dc; 
+    transition: all 0.2s ease;
+}
+
+.bar:before { left: 50%; }
+
+.bar:after { right: 50%; }
+
+
+/* active */
+
+input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
+
+
+/* Highlight */
+
+.highlight {
+    position: absolute;
+    height: 60%; 
+    width: 100px; 
+    top: 25%; 
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+
+/* active */
+
+input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+            animation: inputHighlighter 0.3s ease;
+}
+
+
+/* Animations */
+
+@-webkit-keyframes inputHighlighter {
+    from { background: #4a89dc; }
+    to  { width: 0; background: transparent; }
+}
+
+@keyframes inputHighlighter {
+    from { background: #4a89dc; }
+    to  { width: 0; background: transparent; }
+}
+
+
+.button {
+  position: relative;
+  display: inline-block;
+ 
+  margin: 0;
+
+  width: 100%;
+  float:right;
+  vertical-align: middle;
+  color: #fff;
+  padding:5px;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  letter-spacing: 1px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #3160B6;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}.cl{clear:both;}
+.button:focus { outline: 0; }
+
+
+/* Button modifiers */
+.buttonBlue {
+  background: #4a89dc;
+  width:100px;
+  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+}
+.buttonBlue:hover { background: #357bd8; }
+
+
+/* Ripples container */
+
+.ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+/* Ripples circle */
+
+.ripplesCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.ripples.is-active .ripplesCircle {
+  -webkit-animation: ripples .4s ease-in;
+          animation: ripples .4s ease-in;
+}
+
+
+/* Ripples animation */
+
+@-webkit-keyframes ripples {
+  0% { opacity: 0; }
+
+  25% { opacity: 1; }
+
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+
+@keyframes ripples {
+  0% { opacity: 0; }
+
+  25% { opacity: 1; }
+
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+
+footer { text-align: center; }
+
+footer p {
+    color: #888;
+    font-size: 13px;
+    letter-spacing: .4px;
+}
+
+footer a {
+    color: #4a89dc;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+footer a:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
+footer img {
+    width: 80px;
+    transition: all .2s ease;
+}
+
+footer img:hover { opacity: .83; }
+
+footer img:focus , footer a:focus { outline: none; }
