@@ -2,10 +2,10 @@
 
 $user = $_POST["usuariolg"];
 $password = $_POST["passlg"];
-$host = '172.21.46.102';
-$domain = 'lc.gc.local';
-$basedn = 'dc=lc,dc=gc,dc=local';
-$group = 'LCGU_GSI';
+$host = 'DIRECCIONIPSERVIDOR';
+$domain = 'DOMINIO';
+$basedn = 'dc=X,dc=X,dc=local';
+$group = 'GRUPOLDAP';
 
 $ad = ldap_connect("ldap://{$host}") or die('Could not connect to LDAP server.');
 
