@@ -6,7 +6,7 @@ class Controlado extends Database {
 		$result = $this->pdo->query('SELECT c.titulo, c.responsable, r.usuario, r.modificacion, r.mes 
 									FROM referencias as r
 									INNER JOIN controles as c ON c.id_control = r.id_control 
-									WHERE r.mes <= MONTH(CURRENT_DATE()) AND r.status= 2 AND r.ano = YEAR(CURRENT_DATE()) ORDER BY c.responsable, c.titulo, r.mes ASC');
+									WHERE r.status= 2 ORDER BY r.mes, c.responsable, c.titulo  ASC');
 		return $result->fetchAll();
 	}
 }

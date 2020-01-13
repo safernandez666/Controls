@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+import MySQLdb # MySQLdb module must be installed on the system
+
+connection = MySQLdb.connect("localhost","root","Marte2000","gs_prueba") # Details skipped
+
+cursor = connection.cursor()
+
+query = "INSERT INTO controles (titulo, contenido, status, ano, responsable, periodo) VALUES ('Gestion de usuarios y contrasenas', 'Revisar que los permisos otorgados son los apropiados', '3', 2019, 2, 4)"
+
+cursor.execute(query)
+
+print cursor.lastrowid # Imprime Ultimo ID
+
+cursor.close()
+connection.commit()
+connection.close()

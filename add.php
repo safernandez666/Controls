@@ -51,11 +51,11 @@ include("conexion.php");
 				
 				$ano = date("Y");
 
-				$cek = mysqli_query($con, "SELECT * FROM controles WHERE titulo='$titulo'");
+				$cek = mysqli_query($con, "SELECT * FROM controles WHERE titulo='$titulo' AND ano=$ano");
 				if(mysqli_num_rows($cek) == 0){
 						//Inserto Control
 					$insert_control = mysqli_query($con, "INSERT INTO controles(titulo, contenido, creado, ano, responsable, usuario, periodo, status)
-						VALUES('$titulo','$contenido', NOW(), '$ano','$responsable', '$usuario','$periodo', 3 )") or die(mysqli_error());	
+						VALUES('$titulo','$contenido', NOW(), YEAR(CURRENT_DATE()),'$responsable', '$usuario','$periodo', 3 )") or die(mysqli_error());	
 
 						//Ultimo Insert
 					$last = $con->insert_id;
@@ -67,7 +67,7 @@ include("conexion.php");
 					$ano = date("Y");
 					while ($mes <= 12) {
 						$insert_ref = mysqli_query($con, "INSERT INTO referencias (id_control, mes, ano, nro_referencia)
-							VALUES('$last', '$mes', '$ano','$nro_referencia')") or die (mysqli_error());	
+							VALUES('$last', '$mes', YEAR(CURRENT_DATE()),'$nro_referencia')") or die (mysqli_error());	
 						$nro_referencia++;
 						$mes = $mes + $periodo;
 					}
@@ -139,3 +139,4 @@ include("conexion.php");
 	</script>
 </body>
 </html>
+

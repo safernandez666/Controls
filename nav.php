@@ -17,17 +17,13 @@ if (!isset($_SESSION['usuario'])){
 			<?php if ($control_visible != null && $control_visible)
 			echo '<li class="nav-item"><a class="nav-link" href="add.php">Control</a></li>'
 			?>
-			<li class="nav-item"><a class="nav-link" href="reporte.php">Reporte</a></li>
+			<li class="nav-item"><a class="nav-link" href="reportes_new.php">Reporte</a></li>
 		</ul>
-			
-
-			<ul class="nav-right nav nav-tabs">
+		<ul class="nav-right nav nav-tabs">
 			<li class="nav-item"><a class="nav-link"><?php echo $_SESSION['usuario']?></a></li>
 			<?php if (isset($_SESSION['usuario']))
 			echo '<li class="nav-item"><a class="nav-link" href="out.php">Salir</a></li>'
 			?>
-			</ul>
-
-
+		</ul>
 	</div>
 </div>

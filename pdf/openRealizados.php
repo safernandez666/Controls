@@ -1,6 +1,6 @@
 <?php
 
-require('fpdf/fpdf.php');
+require('pdf/fpdf.php');
 require('model.php');
 
 
@@ -34,7 +34,7 @@ $fpdf->SetTitle('Controles Realizados');
 $fpdf->AddPage('portrait', 'A4');
 $fpdf->SetFont('Helvetica', 'B', 12);
 $ano = date("Y");
-$fpdf->Cell(0, 5,'Listado de Controles F '.$ano, 0, 0, 'C');
+$fpdf->Cell(0, 5,'Listado de Controles Realizados '.$ano, 0, 0, 'C');
 $fpdf->Ln(20);
 
 //Encabezado

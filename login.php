@@ -2,17 +2,17 @@
 
 $user = $_POST["usuariolg"];
 $password = $_POST["passlg"];
-$host = 'DIRECCIONIPSERVIDOR';
-$domain = 'DOMINIO';
-$basedn = 'dc=X,dc=X,dc=local';
-$group = 'GRUPOLDAP';
+$host = '10.0.2.19';
+$domain = 'ironbox.local';
+$basedn = 'dc=ironbox,dc=local';
+$group = 'IR_SGSI';
 
-$ad = ldap_connect("ldap://{$host}") or die('Could not connect to LDAP server.');
+$ad = ldap_connect("ldap://{$host}") or die(json_encode(array('error' => true, 'message' => 'Could not connect to LDAP server.')));
 
 ldap_set_option($ad, LDAP_OPT_PROTOCOL_VERSION, 3);
 ldap_set_option($ad, LDAP_OPT_REFERRALS, 0);
 
-@ldap_bind($ad, "{$user}@{$domain}", $password) or die('Could not bind to AD.');
+@ldap_bind($ad, "{$user}@{$domain}", $password) or die(json_encode(array('error' => true, 'message' => 'Could not connect to LDAP server.')));
 
 $userdn = getDN($ad, $user, $basedn);
 

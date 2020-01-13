@@ -1,6 +1,6 @@
 <?php
 
-require('fpdf/fpdf.php');
+require('pdf/fpdf.php');
 require('modelFal.php');
 
 
