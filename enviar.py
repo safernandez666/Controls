@@ -7,7 +7,7 @@ arreglo = []
 
 db = my.connect(host="127.0.0.1",
     user="gs",
-    passwd="Marte2000",
+    passwd="XXXXX",
     db="gs"
     )
 
@@ -47,7 +47,7 @@ db.close()
 SERVER = "localhost"
 
 FROM = "Controles <controles@lacaja.com.ar>"
-TO = ["fernandezs@lacaja.com.ar", "paul@lacaja.com.ar","figoli@lacaja.com.ar","estol@lacaja.com.ar","gastaldi@lacaja.com.ar"]
+TO = ["XXXX@lacaja.com.ar", "XXXX@lacaja.com.ar"]
 
 SUBJECT = "Pendientes ISO27001"
 

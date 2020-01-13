@@ -23,7 +23,7 @@ Cumplimiento
 
 <a href="https://ibb.co/gED1Go"><img src="https://preview.ibb.co/iJfRhT/2018_07_05_10_41_47_Reporte.png" alt="2018_07_05_10_41_47_Reporte" border="0"></a>
 
-Instalacion
+# Instalacion
 
 Una vez que tenemos instalado el servidor LAMP.
 
@@ -35,7 +35,9 @@ sudo apt install php-ldap
 3. Creamos la Base de Datos. En nuestro caso, vamos a crear GS.
 
 CREATE DATABASE gs;
+
 CREATE USER '[user]'@'localhost' IDENTIFIED BY '[password]';
+
 GRANT ALL PRIVILEGES ON * . * TO '[user]'@'localhost';
 
 4. Restauramos, la base de datos.
