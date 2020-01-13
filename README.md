@@ -25,7 +25,7 @@ CREATE DATABASE [database_name];
 CREATE USER '[user]'@'localhost' IDENTIFIED BY '[password]';
 GRANT ALL PRIVILEGES ON * . * TO '[user]'@'localhost';
 
-mysql -u [user] -p [database_name] < [filename].sql
+mysql -u [user] -p [database_name] < [filename].sql #En la Carpeta Scripts, se encuentra gs.sql
 ```
 
 Modificamos las Conexiones, con nuestros datos en /var/www/html/conexion.php y /var/www/html/pdf/conexion.php
@@ -40,6 +40,7 @@ $domain = '[dominio]';
 $basedn = 'dc=[dominio],dc=[dominio]';
 $group = '[grupo]'; #Grupo con permisos, de acceso.
 ```
+Dejo un Script, en Python, para realizar un Cron con avisos de Email.
 
 # Inicio Login
 
