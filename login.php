@@ -2,10 +2,10 @@
 
 $user = $_POST["usuariolg"];
 $password = $_POST["passlg"];
-$host = '10.0.2.19';
+$host = '10.0.2.100';
 $domain = 'ironbox.local';
 $basedn = 'dc=ironbox,dc=local';
-$group = 'IR_SGSI';
+$group = 'Grupo_Controls';
 
 $ad = ldap_connect("ldap://{$host}") or die(json_encode(array('error' => true, 'message' => 'Could not connect to LDAP server.')));
 

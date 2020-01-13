@@ -1,8 +1,8 @@
 <?php
 /*Datos de conexion a la base de datos*/
 $db_host = "localhost";
-$db_user = "root";
-$db_pass = "";
+$db_user = "controls";
+$db_pass = "Argentina2020*%??";
 $db_name = "gs";
 
 $con = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
