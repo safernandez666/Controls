@@ -6,9 +6,9 @@ import MySQLdb as my
 arreglo = []
 
 db = my.connect(host="127.0.0.1",
-    user="gs",
-    passwd="Marte2000",
-    db="gs"
+    user="[usuario]",
+    passwd="[password]",
+    db="[basededatos]"
     )
 
 cursor = db.cursor()
@@ -46,9 +46,8 @@ db.close()
 
 SERVER = "localhost"
 
-FROM = "Controles <controles@lacaja.com.ar>"
-#TO = ["fernandezs@lacaja.com.ar", "paul@lacaja.com.ar","figoli@lacaja.com.ar","estol@lacaja.com.ar","gastaldi@lacaja.com.ar"]
-TO = ["fernandezs@lacaja.com.ar"]
+FROM = "Controles <direccionDeEnvio>"
+TO = ["correo"]
 
 SUBJECT = "Pendientes ISO27001"
 
