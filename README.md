@@ -22,3 +22,26 @@ Indicadores
 Cumplimiento
 
 <a href="https://ibb.co/gED1Go"><img src="https://preview.ibb.co/iJfRhT/2018_07_05_10_41_47_Reporte.png" alt="2018_07_05_10_41_47_Reporte" border="0"></a>
+
+Instalacion
+
+Una vez que tenemos instalado el servidor LAMP.
+
+1. Agregamos el soporte para PHP-LDAP
+
+sudo apt install php-ldap
+
+2. Descomentamos en /etc/php/7.0/apache2/php.ini extension=php_ldap.dll
+3. Creamos la Base de Datos. En nuestro caso, vamos a crear GS.
+
+CREATE DATABASE gs;
+CREATE USER '[user]'@'localhost' IDENTIFIED BY '[password]';
+GRANT ALL PRIVILEGES ON * . * TO '[user]'@'localhost';
+
+4. Restauramos, la base de datos.
+
+mysql -u [user] -p [database_name] < [filename].sql
+
+5. Configuramos las Variables de conexion.php
+6. Configuramos las Variables de LDAP en login.php
+
