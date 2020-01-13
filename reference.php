@@ -24,6 +24,11 @@ include("conexion.php");
 	.content {
 		margin-top: 80px;
 	}
+		.table td, .table th {
+    		padding: .75rem;
+	  	vertical-align: middle;
+       	 	border-top: 1px solid rgba(0,0,0,.06);
+	}
 	</style>
 
 
@@ -31,10 +36,10 @@ include("conexion.php");
 	<?php  
  			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
  			
- 			$query = "SELECT estados.estado as status, count(*) as number FROM referencias INNER JOIN estados ON referencias.status = estados.id_estado where id_control = '$nik' GROUP BY status";
+ 			$query = "SELECT estados.estado as status, count(*) as number FROM referencias INNER JOIN estados ON referencias.status = estados.id_estado where id_control = '$nik' GROUP BY estados.estado";
 			$result = mysqli_query($con, $query); 
 			$mesActual = date('m');
-			$queryHastaHoy = "SELECT estados.estado as status, count(*) as number FROM referencias INNER JOIN estados ON referencias.status = estados.id_estado where id_control = '$nik' AND mes <= '$mesActual' GROUP BY status";
+			$queryHastaHoy = "SELECT estados.estado as status, count(*) as number FROM referencias INNER JOIN estados ON referencias.status = estados.id_estado where id_control = '$nik' AND mes <= '$mesActual' GROUP BY estados.estado";
 			$resultHastaHoy = mysqli_query($con, $queryHastaHoy); 
 
 

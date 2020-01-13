@@ -49,8 +49,10 @@ include("conexion.php");
 				$observacion = mysqli_real_escape_string($con,(strip_tags($_POST["observacion"],ENT_QUOTES)));//Escanpando caracteres
 				$evidencia = mysqli_real_escape_string($con,(strip_tags($_POST["evidencia"],ENT_QUOTES)));//Escanpando caracteres
 				$status	= mysqli_real_escape_string($con,(strip_tags($_POST["status"],ENT_QUOTES)));//Escanpando caracteres
+				$usuario = $_SESSION['usuario'];
+				printf($usuario);
 				
-				$update = mysqli_query($con, "UPDATE referencias SET accion='$accion', modificacion = NOW(), observacion='$observacion', evidencia='$evidencia', status='$status' WHERE id_referencia='$nik'") or die(mysqli_error());
+				$update = mysqli_query($con, "UPDATE referencias SET accion='$accion', modificacion = NOW(), observacion='$observacion', evidencia='$evidencia', status='$status', usuario='$usuario' WHERE id_referencia='$nik'") or die(mysqli_error());
 				if($update){
 					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" zaria-hidden="true">&times;</button>Bien hecho! Los datos han sido guardados con éxito.</div>';
 					$sql = mysqli_query($con, "SELECT * FROM referencias WHERE id_referencia='$nik'");

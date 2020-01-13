@@ -7,13 +7,13 @@ arreglo = []
 
 db = my.connect(host="127.0.0.1",
     user="gs",
-    passwd="XXXXX",
+    passwd="Marte2000",
     db="gs"
     )
 
 cursor = db.cursor()
 
-sql = "SELECT c.titulo as Control, IF(c.responsable=1, 'TISO','FISO')  AS Responsable, case r.mes  when 1 then 'Enero'  when 2 then 'Febrero'  when 3 then 'Marzo' when 4 then 'Abril' when 5 then 'Mayo' when 6 then 'Junio' when 7 then 'Julio' when 8 then 'Agosto' when 9 then 'Septiembre' when 10 then 'Octubre' when 11 then 'Noviembre' when 12 then 'Diciembre'  end AS Mes FROM controles AS c INNER JOIN referencias as r ON c.id_control = r.id_control WHERE r.mes <= MONTH(CURRENT_DATE()) AND r.ano = YEAR(CURRENT_DATE()) ORDER BY c.responsable, c.titulo, r.mes ASC"
+sql = "SELECT c.titulo as Control, IF(c.responsable=1, 'TISO','FISO')  AS Responsable, case r.mes  when 1 then 'Enero'  when 2 then 'Febrero'  when 3 then 'Marzo' when 4 then 'Abril' when 5 then 'Mayo' when 6 then 'Junio' when 7 then 'Julio' when 8 then 'Agosto' when 9 then 'Septiembre' when 10 then 'Octubre' when 11 then 'Noviembre' when 12 then 'Diciembre'  end AS Mes FROM controles AS c INNER JOIN referencias as r ON c.id_control = r.id_control WHERE r.mes <= MONTH(CURRENT_DATE()) AND r.status = 2 AND r.ano = YEAR(CURRENT_DATE()) ORDER BY c.responsable, c.titulo, r.mes ASC"
 
 number_of_rows = cursor.execute(sql)
 
@@ -47,7 +47,8 @@ db.close()
 SERVER = "localhost"
 
 FROM = "Controles <controles@lacaja.com.ar>"
-TO = ["XXXX@lacaja.com.ar", "XXXX@lacaja.com.ar"]
+#TO = ["fernandezs@lacaja.com.ar", "paul@lacaja.com.ar","figoli@lacaja.com.ar","estol@lacaja.com.ar","gastaldi@lacaja.com.ar"]
+TO = ["fernandezs@lacaja.com.ar"]
 
 SUBJECT = "Pendientes ISO27001"
 
@@ -75,4 +76,5 @@ except:
     print ('Problemas para enviar Email')
 
 server.quit()
+
 

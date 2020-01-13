@@ -20,11 +20,18 @@ include("conexion.php");
 	<script src="js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style>
 	.content {
 		margin-top: 80px;
+	}
+	.table td, .table th {
+    		padding: .75rem;
+	  	vertical-align: middle;
+       	 	border-top: 1px solid rgba(0,0,0,.06);
 	}
 </style>
 
@@ -84,8 +91,8 @@ include("conexion.php");
 
 					$filter_ano = (isset($_GET['filter_ano']) ? strtolower($_GET['filter_ano']) :  date("Y"));  
 
-					for ( $i=2012; $i <= date("Y"); $i++)	{
-
+					for ( $i=2012; $i <= 2019; $i++)	{
+					//for ( $i=2012; $i <= date("Y"); $i++)	{
 						$activo =$filter_ano == $i ? 'active' : "";
 						echo  '<a href="?filter_ano='.$i.'"><button class="btn dropdown-item" type="button" '.$activo.'>'.$i.'</button></a>';
 
@@ -113,7 +120,8 @@ include("conexion.php");
 						<th>Titulo</th>
 						<th>Contenido</th>
 						<th>Responsable</th>
-						<th>Acciones</th>
+						<th>Editar</th>
+						<th>Borrar</th>
 					</tr>
 					<?php
 					
@@ -162,7 +170,7 @@ include("conexion.php");
 							</td>								
 							<td><a href="reference.php?nik='.$row['id_control'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['titulo'].'</a></td>
 							<td>'.$row['contenido'].'</td>
-							<td>';
+							<td><center>';
 							if($row['responsable'] == '1'){
 								echo 'TISO';
 							}
@@ -170,9 +178,11 @@ include("conexion.php");
 								echo 'FISO';
 							}
 							echo '
-							</td>
+							</center></td>
 							<td>
 							<a href="edit.php?nik='.$row['id_control'].'" title="Editar datos" class="btn btn-primary btn-sm"><i class="material-icons">mode_edit</i></a>
+							</td>
+							<td>
 							<a href="index.php?aksi=delete&nik='.$row['id_control'].'" title="Eliminar" onclick="return confirm(\'Esta seguro de borrar los datos '.$row['titulo'].'?\')" class="btn btn-danger btn-sm"><i class="material-icons">delete_forever</i></a>
 							</td>
 							</tr>
