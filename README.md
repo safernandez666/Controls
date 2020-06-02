@@ -55,4 +55,4 @@ Dejo un Script, en Python, para realizar un Cron con avisos de Email.
 ![Image description](https://github.com/safernandez666/Controls/blob/master/screenshots/Captura_Lista%20Revisiones.PNG)
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
