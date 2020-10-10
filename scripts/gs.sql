@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 20-03-2019 a las 11:44:58
--- Versión del servidor: 5.7.25-0ubuntu0.18.04.2
--- Versión de PHP: 7.2.15-0ubuntu0.18.04.1
+-- Servidor: mysql-server
+-- Tiempo de generación: 10-10-2020 a las 22:20:38
+-- Versión del servidor: 8.0.19
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gs`
 --
+CREATE DATABASE IF NOT EXISTS `gs` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gs`;
 
 -- --------------------------------------------------------
 
@@ -27,22 +31,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `controles` (
-  `id_control` int(11) NOT NULL,
-  `titulo` varchar(250) COLLATE latin1_bin DEFAULT NULL,
-  `contenido` varchar(250) COLLATE latin1_bin DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
+  `id_control` int NOT NULL,
+  `titulo` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `contenido` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `status` int DEFAULT NULL,
   `creado` date DEFAULT NULL,
-  `ano` int(11) DEFAULT NULL,
+  `ano` int DEFAULT NULL,
   `modificado` date DEFAULT NULL,
-  `responsable` int(11) DEFAULT NULL,
-  `usuario` varchar(250) COLLATE latin1_bin DEFAULT NULL,
-  `periodo` int(11) DEFAULT NULL
+  `responsable` int DEFAULT NULL,
+  `usuario` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `periodo` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
-
---
--- Volcado de datos para la tabla `controles`
---
-
 
 -- --------------------------------------------------------
 
@@ -51,11 +50,16 @@ CREATE TABLE `controles` (
 --
 
 CREATE TABLE `estados` (
-  `id_estado` int(11) NOT NULL,
-  `estado` varchar(250) COLLATE latin1_bin NOT NULL,
-  `color` varchar(250) COLLATE latin1_bin NOT NULL
+  `id_estado` int NOT NULL,
+  `estado` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
+  `color` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
+--
+-- Truncar tablas antes de insertar `estados`
+--
+
+TRUNCATE TABLE `estados`;
 --
 -- Volcado de datos para la tabla `estados`
 --
@@ -71,17 +75,16 @@ INSERT INTO `estados` (`id_estado`, `estado`, `color`) VALUES
 --
 
 CREATE TABLE `referencias` (
-  `id_referencia` int(11) NOT NULL,
-  `id_control` int(11) DEFAULT NULL,
-  `accion` varchar(250) COLLATE latin1_bin DEFAULT NULL,
-  `observacion` varchar(1000) COLLATE latin1_bin DEFAULT NULL,
-  `evidencia` varchar(250) COLLATE latin1_bin DEFAULT NULL,
-  `mes` int(11) DEFAULT NULL,
-  `ano` int(11) DEFAULT NULL,
-  `nro_referencia` int(11) DEFAULT NULL,
+  `id_referencia` int NOT NULL,
+  `id_control` int DEFAULT NULL,
+  `accion` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `observacion` varchar(1000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `evidencia` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `mes` int DEFAULT NULL,
+  `ano` int DEFAULT NULL,
+  `nro_referencia` int DEFAULT NULL,
   `modificacion` date DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '2',
-  `usuario` varchar(100) COLLATE latin1_bin NOT NULL
+  `status` int NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
@@ -108,12 +111,15 @@ ALTER TABLE `referencias`
 -- AUTO_INCREMENT de la tabla `controles`
 --
 ALTER TABLE `controles`
-  MODIFY `id_control` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id_control` int NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `referencias`
 --
 ALTER TABLE `referencias`
-  MODIFY `id_referencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=886;
+  MODIFY `id_referencia` int NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
