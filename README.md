@@ -13,7 +13,7 @@ It is important to have installed Docker.oi & docker-compose.
 _Clon the Proyect_
 
 ```
-https://github.com/safernandez666/ControlsDockerized.git
+https://github.com/safernandez666/Controls.git
 ```
 _Configure the LDAP Server in login.php & add the Group to the AD User_
 
