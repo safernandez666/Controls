@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql-server
--- Tiempo de generación: 10-10-2020 a las 22:20:38
+-- Tiempo de generación: 10-10-2020 a las 22:38:16
 -- Versión del servidor: 8.0.19
 -- Versión de PHP: 7.4.1
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gs`
 --
-CREATE DATABASE IF NOT EXISTS `gs` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `gs` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
 USE `gs`;
 
 -- --------------------------------------------------------
@@ -78,7 +78,7 @@ CREATE TABLE `referencias` (
   `id_referencia` int NOT NULL,
   `id_control` int DEFAULT NULL,
   `accion` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
-  `observacion` varchar(1000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `observacion` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
   `evidencia` varchar(250) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
   `mes` int DEFAULT NULL,
   `ano` int DEFAULT NULL,
@@ -123,3 +123,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

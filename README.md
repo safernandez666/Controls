@@ -1,58 +1,54 @@
-# Controls
-ISO 27001 | Controles 
+# Controls Dockerized
 
-Estimados, hace un tiempo hemos tenido la necesidad de tener un tablero de control donde poder visualizar los controles que derivan de nuestro cumplimiento con la ISO27001. Un lugar donde hacer referencia a las acciones, observaciones y las evidencias de cada uno de los controles, para poder evacuar las dudas del auditor rapidamente. 
+This project is on my **Github**. The only thing that changes is that I have Dockerized it.
 
-Se los comparto, con la finalidad de que puedan darle utilidad y a su vez mejorarlo.
+## Getting Started 🚀 
 
-## Instalacion
+### Requirements 📋
 
-Agregar el soporte para php-ldap a servidor LAMP
+It is important to have installed Docker.oi & docker-compose.
 
-```bash
-sudo apt install php-ldap
+### Install 🔧
+
+_Clon the Proyect_
+
 ```
-Tenemos que descomentar la linea /etc/php/7.0/apache2/php.ini
-
-```bash
-extension=php_ldap.dll
+https://github.com/safernandez666/ControlsDockerized.git
 ```
+_Configure the LDAP Server in login.php & add the Group to the AD User_
 
-Creacion de Base de Datos
-
-```bash
-CREATE DATABASE [database_name];
-CREATE USER '[user]'@'localhost' IDENTIFIED BY '[password]';
-GRANT ALL PRIVILEGES ON * . * TO '[user]'@'localhost';
-
-mysql -u [user] -p [database_name] < [filename].sql #En la Carpeta Scripts, se encuentra gs.sql
 ```
-
-Modificamos las Conexiones, con nuestros datos en /var/www/html/conexion.php y /var/www/html/pdf/conexion.php
-
-Modificamos los parametros, LDAP, en /var/www/html/login.php
-
-```bash
-$user = $_POST["usuariolg"];
-$password = $_POST["passlg"];
-$host = '[direccion_ip]';
-$domain = '[dominio]';
-$basedn = 'dc=[dominio],dc=[dominio]';
-$group = '[grupo]'; #Grupo con permisos, de acceso.
+$host = '192.168.0.190';
+$domain = 'ironbox.local';
+$basedn = 'dc=ironbox,dc=local';
+$group = 'Grupo_Controls';
 ```
-Dejo un Script, en Python, para realizar un Cron con avisos de Email.
+_Windows AD Config_
 
-# Inicio Login
+<img src="/webserver/controls/screenshots/ldap.png" width="300" >
 
-![Image description](https://github.com/safernandez666/Controls/blob/master/screenshots/Captura_Inicio.PNG)
+_Inside the folder_
 
-# Lista de Controles
+```
+docker-compose up -d --build
 
-![Image description](https://github.com/safernandez666/Controls/blob/master/screenshots/Captura_Lista%20Controles.PNG)
+```
+Then to find out if the containers are running, you can run this command and you will see the Docker's
 
-# Revisiones de Controles
+```
+docker-compose ps
 
-![Image description](https://github.com/safernandez666/Controls/blob/master/screenshots/Captura_Lista%20Revisiones.PNG)
+```
+<img src="webserver/controls/screenshots/docker-compose.png" width="600" >
 
-## License
-[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+Now you can enjoy the Application on http://localhost.
+
+<img src="webserver/controls/screenshots/ListaControles.png" width="600" >
+
+<img src="webserver/controls/screenshots/Revision.png" width="600" >
+
+If you want to set emails, you can configure /envios/enviar.py and croned in the Dockerfile.
+
+## Disclaimer
+
+I am not a developer, this MVP was made a long time ago. Know how to excuse that code & harcoding. 🤪

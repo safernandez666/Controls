@@ -2,7 +2,7 @@
 
 $user = $_POST["usuariolg"];
 $password = $_POST["passlg"];
-$host = '10.0.2.100';
+$host = '192.168.0.190';
 $domain = 'ironbox.local';
 $basedn = 'dc=ironbox,dc=local';
 $group = 'Grupo_Controls';

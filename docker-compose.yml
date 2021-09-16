@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:8.0.19
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./webserver/controls/scripts/gs.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+   
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.0.1
+    restart: always
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: secret
+    ports:
+      - "8080:80"
+
+  webserver:
+    build: webserver
+    container_name: webserver
+    restart: always
+    ports:
+      - "80:80"
+volumes:
+  mysql-data:
