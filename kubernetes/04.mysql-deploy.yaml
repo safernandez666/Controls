@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: controls
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      initContainers:  # this init container download init.sql file using "curl -o <downloaded file name with path> <download url>" command.
+      - name: init-script-downloader
+        image: appropriate/curl
+        args:
+          - "-o"
+          - "/mnt/data/scripts/init.sql" # we are saving downloaded file as init.sql in /tmp/data directory
+          - "https://raw.githubusercontent.com/safernandez666/Controls/master/webserver/controls/scripts/gs.sql" # download url
+        volumeMounts:
+        - name: init-script # mount the volume where downloaded file will be saved
+          mountPath: /mnt/data/scripts
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+          # Use secret in real usage
+        - name: MYSQL_ROOT_PASSWORD
+          value: controls
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+        - name: init-script
+          mountPath: /docker-entrypoint-initdb.d # we are mounting init-script volume in this directory. so init.sql file will be available here.  
+      volumes:
+      - name: init-script # this volume holds downloaded init.sql file.
+        persistentVolumeClaim:
+          claimName: mysql-init
+      - name: data
+        persistentVolumeClaim:
+          claimName: data
