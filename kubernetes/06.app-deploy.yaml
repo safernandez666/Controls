@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controls
+  namespace: controls
+  labels:
+    app: controls
+spec:
+  selector:
+    matchLabels:
+      app: controls
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: controls
+        tier: frontend
+    spec:
+      containers:
+      - image: safernandez666/webserver
+        name: controls
+        ports:
+        - containerPort: 80
+          name: controls
